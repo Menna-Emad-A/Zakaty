@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../onboarding_colors.dart';
+import '../../main_pages/shared/main_layout.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen.login({super.key}) : isSignup = false;
@@ -159,7 +160,16 @@ class AuthScreen extends StatelessWidget {
                     SizedBox(
                       height: 40,
                       child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (!isSignup) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const MainLayout(),
+                              ),
+                            );
+                          }
+                        },
                         style: OutlinedButton.styleFrom(
                           backgroundColor: OnboardingColors.cream,
                           foregroundColor: OnboardingColors.copper,
